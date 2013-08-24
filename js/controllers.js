@@ -79,7 +79,7 @@ angular.module('myApp.controllers', [])
         });
 
         $scope.$watch('table_index', function(newVal, oldVal){
-            if (newVal!=oldVal){ $scope.initalize_database(); }
+            if (newVal!=oldVal){ $scope.customer = '';$scope.initalize_database(); }
         });
 
         $scope.initalize_database();
