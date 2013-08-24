@@ -7,6 +7,7 @@
       display: none;
     }
   </style>
+  <link href="lib/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"/>
   <script>
     // include angular loader, which allows the files to load in any order
     /*
@@ -31,28 +32,24 @@
     // load all of the dependencies asynchronously.
     $script([
       'lib/angular/angular.js',
+      'lib/bootstrap/ui-bootstrap-0.5.0.min.js',
       'js/app.js',
       'js/services.js',
       'js/controllers.js',
       'js/filters.js',
-      'js/directives.js'
+      'js/directives.js',
+      'js/words-data.js'
     ], function() {
       // when all is done, execute bootstrap angular application
+      document.getElementById("loading").remove();
       angular.bootstrap(document, ['App']);
     });
   </script>
-  <title>My AngularJS App</title>
+  <title>疯狂猜歌网页小助手 | 衣吹工作室</title>
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body ng-cloak>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
-
+  <div id="loading">页面正在载入......</div>
   <div ng-view></div>
-
-  <div>Angular seed app: v<span app-version></span></div>
-
 </body>
 </html>

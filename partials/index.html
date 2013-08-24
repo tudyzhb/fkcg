@@ -1,0 +1,41 @@
+<div class="container" >
+
+    <div class="row-fluid">
+        <div class="span12">
+            <ul>
+                <li><input type="radio" ng-model="database_name" value="fengkuangcaige"><span>疯狂猜歌</span></li>
+                <li><input type="radio" ng-model="database_name" value="fengkuangcaitu"><span>疯狂猜图</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <ul>
+                <li ng-repeat="obj in database.collection">
+                    <input type="radio" ng-model="$parent.table_index" value="{{ $index }}" /><span>{{ obj.name }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span8">
+            <textarea ng-model="customer" placeholder="请输入备选文字，系统根据数据库筛选出可能的答案"></textarea>
+        </div>
+        <div class="span4">
+            <ul>
+                <li ng-repeat="obj in answers">{{ obj.word }} {{ obj.times }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span5">
+            <p>现在是<strong>{{ database.name }}</strong>-><strong>{{ table.name }}({{ children_lis.length }}条)</strong></p>
+        </div>
+        <div class="span7">
+            <textarea ng-model="children" rows="6"></textarea>
+        </div>
+    </div>
+</div>
