@@ -60,6 +60,7 @@ angular.module('myApp.controllers', [])
         $scope.initalize_children = function(){                                     // 将答案库切为数组
             $scope.children_lis = $scope.children.trim().split('\n');
             $scope.table.data = $scope.children;
+            $scope.answers = [];
             // console.log($scope.children_lis);
         };
 
