@@ -1,41 +1,71 @@
 <div class="container" >
 
     <div class="row-fluid">
-        <div class="span12">
-            <ul>
-                <li><input type="radio" ng-model="database_name" value="fengkuangcaige"><span>疯狂猜歌</span></li>
-                <li><input type="radio" ng-model="database_name" value="fengkuangcaitu"><span>疯狂猜图</span></li>
-            </ul>
+        <div class="span12 well">
+            <h1>衣吹小助手之<strong style="color: #dd1144">疯狂猜歌</strong></h1>
+            <p><a href="//fkcg.yichui.net">&nbsp;http://fkcg.yichui.net</a>————自己动手丰衣足食^_^</p>
         </div>
     </div>
 
     <div class="row-fluid">
+        <div class="span12"><h4>你在玩？</h4></div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span6">
+            <input type="radio" ng-model="database_name" value="fengkuangcaige">
+            <span class="label label-info">疯狂猜歌</span>
+        </div>
+        <div class="span6">
+            <input type="radio" ng-model="database_name" value="fengkuangcaitu">
+            <span class="label">疯狂猜图</span><span style="font-size: 12px;">&nbsp;(似乎用图片攻略更好点，未录入数据...)</span>
+        </div>
+    </div>
+
+    <div class="row-fluid" style="border-top: 1px solid #ebebeb;">
+        <div class="span12"><h4>答案要填几个字？</h4></div>
+    </div>
+
+    <div class="row-fluid">
         <div class="span12">
-            <ul>
-                <li ng-repeat="obj in database.collection">
-                    <input type="radio" ng-model="$parent.table_index" value="{{ $index }}" /><span>{{ obj.name }}</span>
+            <ul class="inline">
+                <li ng-repeat="obj in database.collection" style="margin-right: 10px;">
+                    <input type="radio" ng-model="$parent.table_index" value="{{ $index }}" /><span class="label label-info">{{ obj.name }}</span>
                 </li>
             </ul>
         </div>
     </div>
 
+    <div class="row-fluid" style="border-top: 1px solid #ebebeb;">
+        <div class="span8"><h4>答案可能含有的文字?</h4></div>
+        <div class="span4" style="text-align: center;"><h5>可能的答案/匹配次数</h5></div>
+    </div>
+
     <div class="row-fluid">
         <div class="span8">
-            <textarea ng-model="customer" placeholder="请输入备选文字，系统根据数据库筛选出可能的答案"></textarea>
+            <textarea style="width: 100%;" ng-model="customer" placeholder="请输入备选文字，系统根据数据库筛选出可能的答案"></textarea>
         </div>
-        <div class="span4">
+        <div class="span3" style="text-align: center;">
             <ul>
                 <li ng-repeat="obj in answers">{{ obj.word }} {{ obj.times }}</li>
             </ul>
         </div>
     </div>
 
+    <div class="row-fluid" style="border-top: 1px solid #ebebeb;">
+        <div class="span12"><h4>补充数据?请直接粘贴到下列文本框内：</h4></div>
+    </div>
+
     <div class="row-fluid">
-        <div class="span5">
-            <p>现在是<strong>{{ database.name }}</strong>-><strong>{{ table.name }}({{ children_lis.length }}条)</strong></p>
-        </div>
-        <div class="span7">
-            <textarea ng-model="children" rows="6"></textarea>
+        <div class="span4">
+            <p>当前数据: <strong>{{ database.name }}</strong>-><strong>{{ table.name }}</strong>-><strong>{{ children_lis.length }}条记录</strong></p>
+            <textarea style="width: 100%;" ng-model="children" rows="6"></textarea>
         </div>
     </div>
+
+    <!--<div class="row-fluid">-->
+        <!--<div class="span8 offset2" style="border: 2px solid #ebebeb;">-->
+            <!--<p>谢谢关注</p>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
